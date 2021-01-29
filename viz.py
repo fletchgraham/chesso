@@ -1,4 +1,5 @@
 from random import randint
+import time
 
 answer = None
 
@@ -8,6 +9,7 @@ rs = int(input('rank start? '))
 re = int(input('rank end? '))
 
 score = 0
+start_time = time.time()
 while not answer == 'q':
     rank = randint(rs, re)
     filenum = randint(fs, fe)
@@ -20,4 +22,6 @@ while not answer == 'q':
         score += 1
     else:
         print(f'game over. score: {score}')
+        elapsed_time = time.time() - start_time
+        print(f'average time per answer: {elapsed_time / score}')
         quit()
